@@ -7,7 +7,12 @@
     flex-wrap: wrap;
     padding: 26px 0px;
     gap: 16px;
-    
+    background-color: black;
+}
+.linkLogo{
+    background-color: whitesmoke;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .footerLogo{
@@ -16,7 +21,7 @@
 
 .footerLink {
     text-decoration: none;
-    color: black;
+    color: white;
     transition: 0.3s;
 
     &:hover{

@@ -48,7 +48,9 @@ const HomeNoAuth  = ({ course }: IndexPageProps) => {
             <SlideSection newestCourses={course} />
           </div>
           
-          <Footer/>
+          <div style={{backgroundColor: "black"}} >
+            <Footer/>
+          </div>
       </main>
     </>
   );

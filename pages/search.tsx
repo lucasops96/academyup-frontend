@@ -52,7 +52,7 @@ const Search = function () {
                 {
                     searchResult.length >= 1 ? (
                         <div className={styles.searchContainer}>
-                            <Container className="d-flex flex-wrap justify-content-left gap-5 py-4" >
+                            <Container className="d-flex flex-wrap justify-content-center gap-5 py-4" >
                             {
                                 searchResult?.map((course) => (
                                     <SearchCard key={course.id} course={course} />

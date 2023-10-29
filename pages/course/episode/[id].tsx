@@ -121,7 +121,7 @@ const EpisodePlayer = function(){
                     {typeof window === 'undefined'? null :(
                         <ReactPlayer 
                             className={styles.player} 
-                            url={`${process.env.NEXT_PUBLIC_BASEURL}/episodes/stream?videoUrl=${course.episodes[episodeOrder].videoUrl}&token=${sessionStorage.getItem("onebitflix-token")}`} 
+                            url={`${process.env.NEXT_PUBLIC_BASEURL}/episodes/stream?videoUrl=${course.episodes[episodeOrder].videoUrl}&token=${sessionStorage.getItem("academyup-token")}`} 
                             controls 
                             ref={playerRef}
                             onStart={handlePlayerTime}
@@ -140,13 +140,13 @@ const EpisodePlayer = function(){
                                 src="/episode/iconArrowLeft.svg" 
                                 alt="setaEsquerda"
                                 className={styles.arrowImg}
-                            />
+                            />Anterior
                         </Button>
                         <Button 
                             className={styles.episodeButton} 
                             disabled={ episodeOrder + 1 === course.episodes.length ? true : false}
                             onClick={handleNextEpisode}  
-                        >
+                        >Próximo
                             <img 
                                 src="/episode/iconArrowRight.svg" 
                                 alt="setaDireita"

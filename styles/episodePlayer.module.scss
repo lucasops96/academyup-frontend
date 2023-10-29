@@ -15,9 +15,12 @@
     background-color: transparent;
     cursor: pointer;
     transition: 0.4s;
+    color: black;
+    border: 2px solid black;
+    padding: 3px;
     &:hover{
-        border: none;
-        padding: 0;
+        border: 2px solid #FDA002;
+        color: #FDA002;
         background-color: transparent;
     }
     &:disabled{

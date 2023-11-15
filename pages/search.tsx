@@ -19,6 +19,7 @@ const Search = function () {
         const res = await courseService.getSearch(searchName);
 
         setSearchResult(res.data.courses);
+        
     };
 
     useEffect(() => {
@@ -36,6 +37,7 @@ const Search = function () {
     if(loading){
         return <PageSpinner/>;
     }
+    
     return (
         <>
             <Head>

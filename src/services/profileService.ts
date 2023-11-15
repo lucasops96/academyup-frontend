@@ -13,7 +13,6 @@ interface PasswordParams{
 }
 
 const profileService = {
-
     fetchCurrent: async ()=>{
         const token = sessionStorage.getItem("academyup-token");
 

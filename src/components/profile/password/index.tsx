@@ -51,7 +51,6 @@ const PasswordForm = function () {
             setColor("bg-success");
             setTimeout(() => setToastIsOpen(false), 1000 * 3);
 
-
             setCurrentPassword("");
             setNewPassword("");
             setConfirmNewPassword("");

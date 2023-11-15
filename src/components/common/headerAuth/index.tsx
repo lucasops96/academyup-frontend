@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import Modal from "react-modal";
 import { useRouter } from "next/router";
 import profileService from "../../../services/profileService";
+
 Modal.setAppElement("#__next");
 
 const HeaderAuth = function(){

@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { CourseType } from "../../services/courseService";
 import styles from "./styles.module.scss";

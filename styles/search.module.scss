@@ -1,23 +1,19 @@
-.noSearchText {
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContainer{
+    flex: 1 0 auto;
+}
+
+.noSearchResult{
     text-align: center;
     padding: 20px;
     font-size: 24px;
     font-weight: bold;
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-}
-
-.header {
-    background-color: gray;
-}
-
-.mainContent {
-    flex: 1 0 auto;
-}
-
-.footer {
-    background-color: whitesmoke;
+.headerFooterBg{
+    background-color: black;
 }

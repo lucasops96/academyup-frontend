@@ -1,16 +1,26 @@
 @import "./colors.module.scss";
-
-.header {
-    background-color: rgb(133, 133, 133);
+.main{
+    display: flex;
+    flex-direction: column;
 }
 
-.form {
-    border: 1px solid $lightGray;
+.gridContainer{
+    flex:1 0 auto;
+    padding: 80px 0;
+}
+
+.header{
+    background-color:black;
+}
+
+.form{
+    border: 1px solid $darkGray;
     padding: 20px 0px;
     max-width: 100%;
+    background-color:black;
 }
 
-.formName {
+.formName{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,73 +30,71 @@
     text-transform: uppercase;
 }
 
-.nameAbbreviation {
+.nameAbbreviation{
     font-size: 40px;
     font-weight: bold;
-    min-width: 70px;
     min-height: 70px;
-    border-radius: 50%;
+    min-width: 70px;
     background-color: white;
     color: black;
+    border-radius: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.userName {
+.userName{
     font-size: 30px;
     font-weight: bold;
-    word-break: break-all;
+    color: white;
 }
 
-.memberTime {
+.memberTime{
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.memberTimeImg {
+.memberTimeImg{
     width: 20px;
 }
 
-.memberTimeText {
+.memberTimeText{
     font-size: 14px;
-    color: $darkGray;
+    color: $lightGray;
 }
 
-.label {
+.label{
     font-size: 14px;
     font-weight: bold;
+    color: white;
 }
 
-.inputFlexDiv {
+.inputFlexDiv{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
 }
 
-.inputFlex {
+.inputFlex{
     width: 250px;
-    background-color: transparent;
-    border: 1px solid $darkGray;
-    color: gray;
-    transition: 0.3s;
     text-transform: uppercase;
-
-    &::placeholder {
-        color: $darkGray;
+    background-color: transparent;
+    border:1px solid $darkGray;
+    color: white;
+    &::placeholder{
+        color: $lightGray;
     }
-
-    &:focus {
+    &:focus{
         box-shadow: none;
-        border-color: #FDA002;
+        border-color: $lightOrange;
+        color: white;
         background-color: transparent;
-        color: darkgray;
     }
 }
 
-.inputNormalDiv {
+.inputNormalDiv{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,107 +102,95 @@
     gap: 20px;
 }
 
-.input {
+.input{
     @extend .inputFlex;
     text-transform: lowercase;
     width: 550px;
 }
 
-.formBtn {
-    border-color: $darkGray;
+.formBtn{
+    border-color: white;
     text-align: center;
-    color: gray;
+    color: white;
     font-weight: bold;
     font-size: 15px;
     padding: 6px 20px;
-    transition: 0.4s;
     display: block;
-
-    &:hover {
-        border-color: #FDA002;
+    margin: 10px auto;
+    &:hover{
+        border-color: $lightOrange;
         background-color: transparent;
-        color: #FDA002;
-    }
-
-    &:focus {
-        box-shadow: none;
-        outline: none;
+        color: $lightGray;
     }
 }
 
-.title {
+.title{
     font-size: 45px;
     font-weight: bold;
-    padding: 0px 0px 50px 0px;
+    padding-bottom: 50px;
 }
 
-.renderFormBtn {
+.renderForm{
     display: block;
     width: 200px;
     border: 1px solid $darkGray;
-    color: gray;
+    background-color: transparent;
     font-weight: bold;
     margin: 0 auto;
     padding: 14px 0px;
-
-    &:hover {
+    &:hover{
         background-color: transparent;
-        border-color: #FDA002;
-        color: #FDA002;
+        color: $lightOrange;
+        border-color: $lightOrange;
+    }
+    &:active{
+        background-color: transparent;
+        box-shadow: none;
+    }
+    &:focus{
+        background-color: transparent;
+        box-shadow: none;
     }
 }
 
-@media (max-width: 991px) {
-    .title {
+.footer{
+    background-color: black;
+}
+
+@media(max-width: 991px){
+    .title{
         text-align: center;
     }
-
-    .btnColumn {
+    .btnColumn{
         width: 100%;
         margin-bottom: 40px;
     }
 }
 
-@media (max-width: 767px) {
-    .inputFlexDiv {
-        gap: 30px;
+@media(max-width: 767px){
+    .inputFlexDiv{
+        gap: 20px;
     }
-
-    .inputFlex {
-        width: 400px;
-    }
-
-    .input {
+    .inputFlex{
         width: 400px;
     }
 }
 
-@media (max-width: 527px) {
-    .title {
-        font-size: 35px;
-    }
-
-    .formName {
-        width: 95%;
-    }
-
-    .nameAbbreviation {
+@media(max-width: 460px){
+    .title{
         font-size: 30px;
-        min-width: 60px;
+        margin-bottom: 10px;
+    }
+    .nameAbbreviation{
+        font-size: 30px;
         min-height: 60px;
+        min-width: 60px;
     }
+    .userName{
+        font-size: 20px;
 
-    .userName {
-        font-size: 30px;
     }
-}
-
-@media (max-width: 435px) {
-    .inputFlex {
-        width: 100%;
-    }
-
-    .input {
+    .inputFlex{
         width: 100%;
     }
 }

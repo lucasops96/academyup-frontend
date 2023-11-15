@@ -18,7 +18,7 @@ const FavoriteCategory = function(){
                 <SlideComponent course={data.data.courses}/>
             ):(
                 <p className="text-center pt-3 h5">
-                    <strong>Você não tem nenhum curso na lista</strong>
+                    <strong>Você não tem nenhum curso na lista 😭</strong>
                 </p>
             )}
         </>

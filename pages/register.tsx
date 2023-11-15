@@ -58,7 +58,7 @@ const Register = function (){
     return(
         <>
         <Head>
-            <title>AcademyUp - Registro</title>
+            <title>AcademyUp - Register</title>
             <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
             <script src="https://jsuites.net/v4/jsuites.js"></script>
         </Head>
@@ -174,7 +174,9 @@ const Register = function (){
                     </Button>
                 </Form>
             </Container>
-            <Footer/>
+            <div style={{backgroundColor: "black"}} >
+                <Footer/>
+            </div>
             <ToastComponent 
                 color="bg-danger" 
                 isOpen={toastIsOpen} 

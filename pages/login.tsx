@@ -109,7 +109,9 @@ const Login = function(){
                         message={toastMessage}
                     />
                 </Container>
-                <Footer/>
+                <div style={{backgroundColor: "black"}} >
+                    <Footer/>
+                </div>
             </main>
         </>
     );

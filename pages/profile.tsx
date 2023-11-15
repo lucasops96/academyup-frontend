@@ -1,46 +1,62 @@
 import Head from "next/head";
 import styles from "../styles/profile.module.scss";
-import UserForm from "@/src/components/profile/user";
-import HeaderAuth from "@/src/components/common/headerAuth";
+import HeaderAuth from "../src/components/common/headerAuth";
 import { Button, Col, Container, Row } from "reactstrap";
-import Footer from "@/src/components/common/footer";
-import { useState } from "react";
-import PasswordForm from "@/src/components/profile/password";
+import Footer from "../src/components/common/footer";
+import PasswordForm from "../src/components/profile/password";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import PageSpinner from "../src/components/common/spinner";
+import UserForm from "@/src/components/profile/user";
 
 const UserInfo = function () {
 
     const [form, setForm] = useState("userForm");
 
+    const router = useRouter();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (!sessionStorage.getItem("academyup-token")) {
+            router.push("/login");
+        } else {
+            setLoading(false);
+        }
+    }, []);
+
+    if (loading) {
+        return <PageSpinner />;
+    }
+
     return (
         <>
             <Head>
-                <title>AcademyUp - Meus Dados</title>
+                <title>AcademyUP - Meus dados</title>
                 <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
             </Head>
-            <main>
+            <main className={styles.main}>
                 <div className={styles.header}>
                     <HeaderAuth />
                 </div>
-                <Container className="py-5">
+                <Container className={styles.gridContainer}>
                     <p className={styles.title}>Minha Conta</p>
+
                     <Row className="pt-3 pb-5">
                         <Col md={4} className={styles.btnColumn}>
                             <Button
-                                outline
-                                className={styles.renderFormBtn}
-                                style={{ color: form === "userForm" ? "#FDA002" : "gray" }}
+                                className={styles.renderForm}
+                                style={{ color: form === "userForm" ? "#FDA002" : "black" }}
                                 onClick={() => {
-                                    setForm("userForm");
+                                    setForm("userForm")
                                 }}
                             >
                                 DADOS PESSOAIS
                             </Button>
                             <Button
-                                outline
-                                className={styles.renderFormBtn}
-                                style={{ color: form === "passwordForm" ? "#FDA002" : "gray" }}
+                                className={styles.renderForm}
+                                style={{ color: form === "passwordForm" ? "#FDA002" : "black" }}
                                 onClick={() => {
-                                    setForm("passwordForm");
+                                    setForm("passwordForm")
                                 }}
                             >
                                 SENHA

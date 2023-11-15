@@ -1,39 +1,36 @@
-/* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
 import profileService from "../../../services/profileService";
 import { FormEvent, useEffect, useState } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import styles from "../../../../styles/profile.module.scss";
 import ToastComponent from "../../common/toast";
-import { useRouter } from "next/router";
 
-const UserForm = function(){
+const UserForm = function () {
     const router = useRouter();
-
-    const [color,setColor] = useState("");
-    const [toastIsOpen,setToastIsOpen] = useState(false);
-    const [errorMessage,setErrorMessage] = useState("");
-    const [firstName,setFirstName] = useState("");
-    const [lastName,setLastName] = useState("");
-    const [phone,setPhone] = useState("");
-    const [email,setEmail] = useState("");
-    const [initialEmail, setInitialEmail] = useState(email);
-    const [created_at,setCreated_at] = useState("");
-    
+    const [color, setColor] = useState("");
+    const [toastIsOpen, setToastIsOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [initialEmail, setInitialEmail] = useState("email");
+    const [created_at, setCreated_at] = useState("");
     const date = new Date(created_at);
     const month = date.toLocaleDateString("default", { month: "long" });
 
-    useEffect(()=>{
-        profileService.fetchCurrent().then((user)=>{
+    useEffect(() => {
+        profileService.fetchCurrent().then((user) => {
             setFirstName(user.firstName);
             setLastName(user.lastName);
             setPhone(user.phone);
             setEmail(user.email);
-            setInitialEmail(user.email);
+            setInitialEmail(user.email)
             setCreated_at(user.createdAt);
         });
-    },[]);
+    }, []);
 
-    const handleUserUpdate = async function(event:FormEvent<HTMLFormElement>){
+    const handleUserUpdate = async function (event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const res = await profileService.userUpdate({
@@ -44,39 +41,37 @@ const UserForm = function(){
             created_at,
         });
 
-        if(res === 200){
+        if (res === 200) {
             setToastIsOpen(true);
             setErrorMessage("Informações alteradas com sucesso!");
             setColor("bg-success");
-            setTimeout(()=> setToastIsOpen(false), 1000 * 3)
-
+            setTimeout(() => setToastIsOpen(false), 1000 * 3);
             if(email != initialEmail){
                 sessionStorage.clear();
                 router.push("/");
             }
-        }else{
+        } else {
             setToastIsOpen(true);
-            setErrorMessage("Você não pode mudar para esse e-amil!");
+            setErrorMessage("Você não pode mudar para esse email!");
             setColor("bg-danger");
-            setTimeout(()=> setToastIsOpen(false), 1000 * 3)
+            setTimeout(() => setToastIsOpen(false), 1000 * 3);
         }
     };
 
-    return(
+    return (
         <>
             <Form onSubmit={handleUserUpdate} className={styles.form}>
                 <div className={styles.formName}>
                     <p className={styles.nameAbbreviation}>
-                        {firstName.slice(0,1)}
-                        {lastName.slice(0,1)}
+                        {firstName.slice(0, 1)}
+                        {lastName.slice(0, 1)}
                     </p>
-                    <p className={styles.userName}>{`${firstName} ${lastName}`}</p>
+                    <p className={styles.userName}>
+                        {`${firstName} ${lastName}`}
+                    </p>
                 </div>
                 <div className={styles.memberTime}>
-                    <img 
-                        src="/profile/iconUserAccount.svg" alt="iconProfile"
-                        className={styles.memberTimeImg}
-                    />
+                    <img src="/profile/iconUserAccount.svg" alt="iconProfile" className={styles.memberTimeImg} />
                     <p className={styles.memberTimeText}>
                         Membro desde <br />
                         {`${date.getDate()} de ${month} de ${date.getFullYear()}`}
@@ -85,7 +80,7 @@ const UserForm = function(){
                 <hr />
                 <div className={styles.inputFlexDiv}>
                     <FormGroup>
-                        <Label for="firstName" className={styles.label}>
+                        <Label className={styles.label} for="firstName">
                             NOME
                         </Label>
                         <Input
@@ -97,13 +92,11 @@ const UserForm = function(){
                             maxLength={20}
                             className={styles.inputFlex}
                             value={firstName}
-                            onChange={(event)=>{
-                                setFirstName(event.target.value);
-                            }}
+                            onChange={(event) => { setFirstName(event.target.value) }}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="lastName" className={styles.label}>
+                        <Label className={styles.label} for="lastName">
                             SOBRENOME
                         </Label>
                         <Input
@@ -115,16 +108,13 @@ const UserForm = function(){
                             maxLength={20}
                             className={styles.inputFlex}
                             value={lastName}
-                            onChange={(event)=>{
-                                setLastName(event.target.value);
-                            }}
+                            onChange={(event) => { setLastName(event.target.value) }}
                         />
                     </FormGroup>
-                </div>
-                <div className={styles.inputNormalDiv}>
                     <FormGroup>
-                        <Label for="phone" className={styles.label}>
-                            WHASTAPP / TELEGRAM</Label>
+                        <Label className={styles.label} for="phone">
+                            WHATSAPP / TELEGRAM
+                        </Label>
                         <Input
                             name="phone"
                             type="tel"
@@ -133,29 +123,25 @@ const UserForm = function(){
                             required
                             className={styles.input}
                             value={phone}
-                            onChange={(event)=>{
-                                setPhone(event.target.value);
-                            }}
+                            onChange={(event) => { setPhone(event.target.value) }}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="email" className={styles.label}>
-                            E-MAIL</Label>
+                        <Label className={styles.label} for="email">
+                            E-MAIL
+                        </Label>
                         <Input
                             name="email"
                             type="email"
                             id="email"
-                            placeholder="Coloque seu e-mail"
+                            placeholder="Coloque o seu email"
                             required
                             className={styles.input}
                             value={email}
-                            onChange={(event)=>{
-                                setEmail(event.target.value);
-                            }}
+                            onChange={(event) => { setEmail(event.target.value) }}
                         />
                     </FormGroup>
-
-                    <Button className={styles.formBtn} outline type="submit">
+                    <Button type="submit" className={styles.formBtn} outline>
                         Salvar Alterações
                     </Button>
                 </div>

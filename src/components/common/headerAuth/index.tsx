@@ -79,8 +79,9 @@ const HeaderAuth = function(){
                     />
                      <p 
                         className={styles.userProfile} 
-                        onClick={handleOpenModal} 
-                    >{initials}</p>
+                        onClick={handleOpenModal} >
+                            {initials}
+                    </p>
                 </div>
                 <Modal 
                     isOpen={modalOpen}

@@ -26,7 +26,6 @@ const Search = function () {
         searchCourses();
     }, [searchName]);
 
-
     useEffect(()=>{
         if(!sessionStorage.getItem("academyup-token")){
             router.push("/login");
@@ -76,6 +75,5 @@ const Search = function () {
         </>
     );
 };
-
 
 export default Search;

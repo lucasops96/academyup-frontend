@@ -1,6 +1,6 @@
 @import "../../../styles/colors.module.scss";
 
-.searchCard{
+.searchCard {
     width: 320px;
     height: 345px;
     border: 1px solid $darkGray;
@@ -10,36 +10,37 @@
     background-color: $lightOrange;
 
     transition: 0.4s;
-    &:hover{
+
+    &:hover {
         border-color: $lightOrange;
         height: 400px;
     }
 }
 
-.searchCardImg{
+.searchCardImg {
     width: 100%;
     height: 170px;
 }
 
-.searchCardTitle{
+.searchCardTitle {
     font-size: 20px;
     font-weight: bold;
     padding: 10px 20px;
     color: black;
 }
 
-.searchCardDescription{
+.searchCardDescription {
     color: white;
     padding: 0px 20px;
     font-size: 18px;
 }
 
-@media(max-width:350px){
-    .searchCardTitle{
+@media(max-width:350px) {
+    .searchCardTitle {
         font-size: 17px;
     }
 
-    .searchCardDescription{
+    .searchCardDescription {
         font-size: 15px;
     }
 }

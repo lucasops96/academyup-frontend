@@ -7,7 +7,6 @@ interface UserParams {
     email: string;
     created_at: string;
 }
-
 interface PasswordParams{
     currentPassword: string;
     newPassword: string;
